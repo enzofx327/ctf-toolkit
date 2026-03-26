@@ -1,0 +1,33 @@
+# CTF Toolkit Configuration
+# This file can be customized per-project or competition.
+# Environment variables in .env override these values.
+
+toolkit:
+  version: "1.0.0"
+  output_dir: "output"
+  log_level: "INFO"          # DEBUG, INFO, WARNING, ERROR
+  log_file: "logs/toolkit.log"
+  plugins_dir: "plugins_external"
+  auto_save: true             # Always save results to output_dir
+  color_output: true
+
+binary:
+  default_arch: "amd64"       # amd64 | i386 | arm | aarch64
+  rop_depth: 5
+  overflow_padding: 512       # Max bytes for cyclic pattern
+
+crypto:
+  xor_max_keylen: 32          # Max XOR key length to brute-force
+  freq_analysis_top: 10       # Top N letters to display
+
+stego:
+  lsb_bits: 1                 # Default LSB extraction bits
+  temp_dir: "/tmp/ctf_stego"
+
+web:
+  timeout: 10                 # HTTP request timeout in seconds
+  threads: 10                 # Dir-brute thread count
+  user_agent: "CTF-Toolkit/1.0 (Security Research)"
+  wordlist_dir: "wordlists"
+  default_wordlist: "common.txt"
+  sqli_delay: 0.5             # Extra seconds threshold for time-based SQLi
